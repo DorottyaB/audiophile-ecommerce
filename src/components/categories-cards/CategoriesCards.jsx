@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryCard from './CategoryCard';
+import CategoryCard from '../category-card/CategoryCard';
 import headphonesImg from '../../assets/shared/desktop/image-category-thumbnail-headphones.png';
 import speakersImg from '../../assets/shared/desktop/image-category-thumbnail-speakers.png';
 import earphonesImg from '../../assets/shared/desktop/image-category-thumbnail-earphones.png';

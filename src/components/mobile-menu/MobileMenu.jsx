@@ -1,4 +1,4 @@
-import CategoriesCards from './CategoriesCards';
+import CategoriesCards from '../categories-cards/CategoriesCards';
 
 function MobileMenu() {
   return (
