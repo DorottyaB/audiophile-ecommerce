@@ -26,7 +26,11 @@ function ProductDetails() {
         product && (
           <article className='py-6'>
             <div className='rounded-md overflow-hidden'>
-              <img src={product.image.mobile} alt='' />
+              <picture>
+                <source media='(max-width: 767px)' srcSet={product.image.mobile} />
+                <source media='(max-width: 1199px)' srcSet={product.image.tablet} />
+                <img src={product.image.desktop} alt='' />
+              </picture>
             </div>
             <section className='mt-8'>
               {product.new && (
@@ -61,13 +65,25 @@ function ProductDetails() {
             </section>
             <section className='flex flex-col gap-5 mb-[120px]'>
               <div className='rounded-md overflow-hidden'>
-                <img src={product.gallery.first.mobile} alt='' />
+                <picture>
+                  <source media='(max-width: 767px)' srcSet={product.gallery.first.mobile} />
+                  <source media='(max-width: 1199px)' srcSet={product.gallery.first.tablet} />
+                  <img src={product.gallery.first.desktop} alt='' />
+                </picture>
               </div>
               <div className='rounded-md overflow-hidden'>
-                <img src={product.gallery.second.mobile} alt='' />
+                <picture>
+                  <source media='(max-width: 767px)' srcSet={product.gallery.second.mobile} />
+                  <source media='(max-width: 1199px)' srcSet={product.gallery.second.tablet} />
+                  <img src={product.gallery.second.desktop} alt='' />
+                </picture>
               </div>
               <div className='rounded-md overflow-hidden'>
-                <img src={product.gallery.third.mobile} alt='' />
+                <picture>
+                  <source media='(max-width: 767px)' srcSet={product.gallery.third.mobile} />
+                  <source media='(max-width: 1199px)' srcSet={product.gallery.third.tablet} />
+                  <img src={product.gallery.third.desktop} alt='' />
+                </picture>
               </div>
             </section>
             <section className='text-center mb-[120px]'>
@@ -75,7 +91,11 @@ function ProductDetails() {
               {product.others.map(item => (
                 <div key={item.name} className='flex flex-col items-center gap-8 mb-14'>
                   <div className='rounded-md overflow-hidden'>
-                    <img src={item.image.mobile} alt='' />
+                    <picture>
+                      <source media='(max-width: 767px)' srcSet={item.image.mobile} />
+                      <source media='(max-width: 1199px)' srcSet={item.image.tablet} />
+                      <img src={item.image.desktop} alt='' />
+                    </picture>
                   </div>
                   <h4 className='text-xl font-bold'>{item.name}</h4>
                   <Button url={`/products/${item.slug}`} />
