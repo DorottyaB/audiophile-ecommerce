@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { selectCategories, selectIsLoading } from '../../selectors/categories/categoriesSelector';
 import Button from '../button/Button';
 import Spinner from '../shared/spinner/Spinner';
+import AddToCart from '../add-to-cart/AddToCart';
+import CategoriesCards from '../categories-cards/CategoriesCards';
 
 function ProductDetails() {
   const { productSlug } = useParams();
@@ -17,7 +19,10 @@ function ProductDetails() {
 
   return (
     <main className='px-6 py-4'>
-      <button onClick={() => navigate(-1)} className='text-base text-gray font-medium'>
+      <button
+        onClick={() => navigate(-1)}
+        className='text-base text-gray font-medium lg:hover:text-orange'
+      >
         Go Back
       </button>
       {isLoading ? (
@@ -42,8 +47,8 @@ function ProductDetails() {
               <p className='my-6 leading-6 font-medium text-base text-gray'>
                 {product.description}
               </p>
-              <h2 className='text-lg font-bold'>$ {product.price.toLocaleString('en-US')}</h2>
-              {/* add to cart */}
+              <h2 className='text-lg font-bold mb-8'>$ {product.price.toLocaleString('en-US')}</h2>
+              <AddToCart product={product} />
             </section>
             <section className='my-[88px]'>
               <h3 className='text-xl font-bold mb-6 uppercase'>Features</h3>
@@ -86,7 +91,7 @@ function ProductDetails() {
                 </picture>
               </div>
             </section>
-            <section className='text-center mb-[120px]'>
+            <section className='text-center mb-[70px]'>
               <h3 className='text-xl font-bold mb-6 uppercase'>You may also like</h3>
               {product.others.map(item => (
                 <div key={item.name} className='flex flex-col items-center gap-8 mb-14'>
@@ -101,6 +106,14 @@ function ProductDetails() {
                   <Button url={`/products/${item.slug}`} />
                 </div>
               ))}
+            </section>
+            <section className='mb-[120px]'>
+              <CategoriesCards
+                flexDirection='flex-col md:flex-row'
+                gap='gap-y-[70px] md:gap-x-2.5'
+                paddingX='px-0'
+                height='h-[165px]'
+              />
             </section>
           </article>
         )

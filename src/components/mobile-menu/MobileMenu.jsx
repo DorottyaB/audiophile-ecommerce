@@ -6,6 +6,7 @@ function MobileMenu() {
       <CategoriesCards
         flexDirection='flex-col md:flex-row'
         gap='gap-y-[70px] md:gap-x-2.5'
+        paddingX='px-6'
         height='h-[165px]'
       />
     </div>

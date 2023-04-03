@@ -4,7 +4,7 @@ import headphonesImg from '../../assets/shared/desktop/image-category-thumbnail-
 import speakersImg from '../../assets/shared/desktop/image-category-thumbnail-speakers.png';
 import earphonesImg from '../../assets/shared/desktop/image-category-thumbnail-earphones.png';
 
-function CategoriesCards({ flexDirection, gap, height }) {
+function CategoriesCards({ flexDirection, gap, paddingX, height }) {
   const categories = [
     {
       title: 'headphones',
@@ -25,7 +25,7 @@ function CategoriesCards({ flexDirection, gap, height }) {
 
   return (
     <div
-      className={`flex ${flexDirection} ${gap} pt-24 pb-9 px-6 bg-offWhite w-full rounded-bl-md rounded-br-md z-30`}
+      className={`flex ${flexDirection} ${gap} ${paddingX} pt-24 pb-9 bg-offWhite w-full rounded-bl-md rounded-br-md z-30`}
     >
       {categories.map(category => (
         <CategoryCard
