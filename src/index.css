@@ -14,6 +14,10 @@ body {
   position: relative;
 }
 
-/* button {
-  font-family: Manrope, 'sans-serif';
-} */
+p {
+  font-size: 15px;
+}
+
+.social-icon:hover path {
+  fill: #d87d4a;
+}

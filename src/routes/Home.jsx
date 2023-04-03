@@ -7,7 +7,7 @@ function Home() {
       <h1 className='uppercase text-4xl text-white font-bold tracking-wider'>
         XX99 Mark II HeadphoneS
       </h1>
-      <p className='text-base text-white leading-6 mb-2'>
+      <p className='text-white leading-7 mb-2'>
         Experience natural, lifelike audio and exceptional build quality made for the passionate
         music enthusiast.
       </p>

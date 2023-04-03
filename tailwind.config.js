@@ -10,14 +10,14 @@ export default {
     },
     fontSize: {
       xs: '0.75rem',
-      sm: '0.8rem',
+      sm: '0.815rem',
       base: '15px',
       lg: '1.125rem',
       xl: '1.5rem',
       '2xl': '1.75rem',
       '3xl': '1.953rem',
       '4xl': '2.25rem',
-      '5xl': '3.052rem',
+      '5xl': '2.5rem',
     },
     colors: {
       orange: '#D87D4A',
@@ -37,11 +37,20 @@ export default {
         md: '8px',
       },
       backgroundImage: {
-        'hero-image-sm': "url('./src/assets/home/mobile/image-header.jpg')",
+        'hero-image-sm':
+          "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198063/audiophile/home/mobile/image-header_lshoqz.jpg')",
+        'hero-image-md':
+          "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198064/audiophile/home/tablet/image-header_ldh984.jpg')",
+        'hero-image-lg':
+          "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198062/audiophile/home/desktop/image-hero_qvyzuf.jpg')",
       },
       letterSpacing: {
         lg: '0.4em',
         xl: '0.6em',
+      },
+      margin: {
+        lg: '88px',
+        xl: '120px',
       },
     },
   },

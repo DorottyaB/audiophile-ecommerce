@@ -13,7 +13,7 @@ function Navigation() {
 
   return (
     <>
-      <nav className='bg-darkGray border-b border-b-lightGray/10 flex justify-between md:justify-start lg:justify-between items-center md:gap-10 py-8 px-6'>
+      <nav className='bg-darkGray border-b border-b-lightGray/10 flex justify-between md:justify-start lg:justify-between items-center md:gap-10 py-8 px-6 md:px-10'>
         {width < 1200 ? (
           <div
             className='lg:hover:cursor-pointer'
@@ -41,8 +41,8 @@ function Navigation() {
             </Link>
           </div>
         ) : null}
-        <div className='lg:w-36'>
-          <img className='lg:cursor-pointer lg:ml-auto' src={cartIcon} alt='Cart' />
+        <div className='lg:w-36 md:ml-auto'>
+          <img className='lg:cursor-pointer' src={cartIcon} alt='Cart' />
         </div>
       </nav>
       {isMenuOpen && <MobileMenu />}
