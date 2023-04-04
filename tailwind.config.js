@@ -43,6 +43,8 @@ export default {
           "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198064/audiophile/home/tablet/image-header_ldh984.jpg')",
         'hero-image-lg':
           "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198062/audiophile/home/desktop/image-hero_qvyzuf.jpg')",
+        'pattern-circles':
+          "url('https://res.cloudinary.com/dcigubvxn/image/upload/v1680198063/audiophile/home/desktop/pattern-circles_fz5sow.svg')",
       },
       letterSpacing: {
         lg: '0.4em',
