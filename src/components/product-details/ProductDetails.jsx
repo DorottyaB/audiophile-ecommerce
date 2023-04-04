@@ -20,7 +20,7 @@ function ProductDetails() {
 
   return (
     <>
-      <main className='px-6 pt-4 md:px-10 md:pt-8'>
+      <main className='px-6 pt-4 md:px-10 md:pt-8 lg:pt-20 lg:px-40'>
         <button
           onClick={() => navigate(-1)}
           className='text-gray text-base font-medium lg:hover:text-orange'
@@ -31,8 +31,8 @@ function ProductDetails() {
           <Spinner />
         ) : (
           product && (
-            <article className='pt-6'>
-              <section className='md:grid md:grid-cols-2 md:gap-x-16 md:items-center'>
+            <article className='pt-6 lg:pt-14'>
+              <section className='md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-[125px] md:items-center'>
                 <div className='rounded-md overflow-hidden mb-8'>
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.image.mobile} />
@@ -40,13 +40,13 @@ function ProductDetails() {
                     <img src={product.image.desktop} alt='' />
                   </picture>
                 </div>
-                <div>
+                <div className='lg:max-w-[445.5px]'>
                   {product.new && (
-                    <p className='uppercase text-[14px] md:text-xs text-orange tracking-xl mb-6 md:mb-4'>
+                    <p className='uppercase text-[14px] md:text-xs lg:text-[14px] text-orange tracking-xl mb-6 md:mb-4'>
                       New product
                     </p>
                   )}
-                  <h1 className='text-2xl tracking-wide font-bold leading-tight uppercase'>
+                  <h1 className='text-2xl lg:text-5xl tracking-wide font-bold leading-tight uppercase'>
                     {product.name}
                   </h1>
                   <p className='my-6 md:my-8 leading-6 font-medium text-gray'>
@@ -58,22 +58,29 @@ function ProductDetails() {
                   <AddToCart product={product} />
                 </div>
               </section>
-              <section className='my-lg'>
-                <h3 className='text-xl font-bold mb-6 uppercase'>Features</h3>
-                <p className='leading-6 font-medium text-gray'>{product.features}</p>
+              <section className='my-lg lg:my-2xl lg:grid lg:grid-cols-[3fr,_2fr] lg:gap-x-[125px]'>
+                <div className='mb-lg lg:mb-0'>
+                  <h3 className='text-xl lg:text-3xl font-bold mb-6 lg:mb-8 uppercase'>Features</h3>
+                  <p className='leading-6 font-medium text-gray'>{product.features}</p>
+                </div>
+                <div className='md:grid md:grid-cols-2 lg:flex lg:flex-col'>
+                  <h3 className='text-xl lg:text-3xl font-bold mb-6 lg:mb-8 uppercase'>
+                    In the box
+                  </h3>
+                  <ul>
+                    {product.includes.map(item => (
+                      <li
+                        key={item.item}
+                        className='grid grid-cols-[25px,_1fr] gap-4 text-gray mb-3'
+                      >
+                        <span className='text-orange font-bold'>{item.quantity}x</span>
+                        {item.item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </section>
-              <section className='mb-lg md:grid md:grid-cols-2'>
-                <h3 className='text-xl font-bold mb-6 uppercase'>In the box</h3>
-                <ul>
-                  {product.includes.map(item => (
-                    <li key={item.item} className='grid grid-cols-[25px,_1fr] gap-4 text-gray mb-3'>
-                      <span className='text-orange font-bold'>{item.quantity}x</span>
-                      {item.item}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-              <section className='flex flex-col gap-5 mb-xl md:grid md:grid-cols-[2fr,_3fr] md:grid-rows-2'>
+              <section className='flex flex-col gap-5 mb-xl lg:mb-2xl md:grid md:grid-cols-[2fr,_3fr] md:grid-rows-2'>
                 <div className='rounded-md overflow-hidden'>
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.gallery.first.mobile} />
@@ -92,12 +99,14 @@ function ProductDetails() {
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.gallery.third.mobile} />
                     <source media='(max-width: 1199px)' srcSet={product.gallery.third.tablet} />
-                    <img src={product.gallery.third.desktop} alt='' className='md:h-full' />
+                    <img src={product.gallery.third.desktop} alt='' className='md:w-full' />
                   </picture>
                 </div>
               </section>
               <section className='text-center mb-[70px]'>
-                <h3 className='text-xl font-bold mb-10 md:mb-14 uppercase'>You may also like</h3>
+                <h3 className='text-xl lg:text-3xl font-bold mb-10 md:mb-14 uppercase'>
+                  You may also like
+                </h3>
                 <div className='md:flex md:flex-row md:gap-3'>
                   {product.others.map(item => (
                     <div key={item.name} className='flex flex-col items-center gap-8 mb-14 md:mb-0'>
@@ -114,13 +123,12 @@ function ProductDetails() {
                   ))}
                 </div>
               </section>
-              <section className='my-xl'>
+              <section className='my-xl lg:my-2xl'>
                 <CategoriesCards
                   flexDirection='flex-col md:flex-row'
                   gap='gap-y-[70px] md:gap-x-2.5'
                   paddingX='px-0'
                   paddingY='pt-24 pb-9 md:pt-11 md:pb-0'
-                  height='h-[165px]'
                 />
               </section>
             </article>

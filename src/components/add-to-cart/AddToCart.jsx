@@ -13,7 +13,7 @@ function AddToCart({ product }) {
   }
 
   return (
-    <div className='flex justify-between gap-4'>
+    <div className='flex justify-between lg:justify-start gap-4'>
       <div className='bg-lightGray flex font-bold text-sm'>
         <button
           onClick={decreaseItem}
@@ -31,7 +31,7 @@ function AddToCart({ product }) {
       </div>
       <button
         onClick={() => dispatch(addItemToCart({ productToAdd: product, quantityToAdd: quantity }))}
-        className='bg-orange w-full text-white text-sm font-bold uppercase lg:hover:bg-lightOrange active:bg-lightOrange lg:cursor-pointer'
+        className='bg-orange w-full lg:w-40 text-white text-sm font-bold uppercase lg:hover:bg-lightOrange active:bg-lightOrange lg:cursor-pointer'
       >
         Add to cart
       </button>

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import MobileMenuProvider from './contexts/MobileMenuContext';
 import './App.css';
 import Navigation from './routes/Navigation';
@@ -17,9 +17,16 @@ function App() {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
   // }, []);
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
+
+  // Automatically scroll to top whenever pathname changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <MobileMenuProvider>
