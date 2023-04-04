@@ -53,6 +53,9 @@ export default {
         xl: '120px',
         '2xl': '160px',
       },
+      gap: {
+        xl: '125px',
+      },
     },
   },
   plugins: [],

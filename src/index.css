@@ -18,6 +18,16 @@ p {
   font-size: 15px;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-card:nth-of-type(even) .product-card-img {
+  grid-area: 1 / 2 / -1 / -1;
+}
+
 .social-icon:hover path {
   fill: #d87d4a;
 }

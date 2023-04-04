@@ -33,7 +33,6 @@ function CategoriesCards({ flexDirection, gap, paddingX, paddingY, height }) {
           image={category.img}
           url={category.url}
           title={category.title}
-          height={height}
         />
       ))}
     </div>

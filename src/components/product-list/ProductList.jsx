@@ -2,18 +2,18 @@ import ProductCard from '../product-card/ProductCard';
 
 function ProductList({ items }) {
   return (
-    <div>
+    <section>
       {items.map(item => (
         <ProductCard
           key={item.id}
           slug={item.slug}
           isNew={item.new}
           name={item.name}
-          image={item.categoryImage.mobile}
+          image={item.categoryImage}
           description={item.description}
         />
       ))}
-    </div>
+    </section>
   );
 }
 

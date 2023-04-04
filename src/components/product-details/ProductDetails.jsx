@@ -32,12 +32,12 @@ function ProductDetails() {
         ) : (
           product && (
             <article className='pt-6 lg:pt-14'>
-              <section className='md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-[125px] md:items-center'>
+              <section className='md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-xl md:items-center'>
                 <div className='rounded-md overflow-hidden mb-8'>
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.image.mobile} />
                     <source media='(max-width: 1199px)' srcSet={product.image.tablet} />
-                    <img src={product.image.desktop} alt='' />
+                    <img src={product.image.desktop} alt={product.slug} />
                   </picture>
                 </div>
                 <div className='lg:max-w-[445.5px]'>
@@ -58,7 +58,7 @@ function ProductDetails() {
                   <AddToCart product={product} />
                 </div>
               </section>
-              <section className='my-lg lg:my-2xl lg:grid lg:grid-cols-[3fr,_2fr] lg:gap-x-[125px]'>
+              <section className='my-lg lg:my-2xl lg:grid lg:grid-cols-[3fr,_2fr] lg:gap-x-xl'>
                 <div className='mb-lg lg:mb-0'>
                   <h3 className='text-xl lg:text-3xl font-bold mb-6 lg:mb-8 uppercase'>Features</h3>
                   <p className='leading-6 font-medium text-gray'>{product.features}</p>
@@ -85,36 +85,48 @@ function ProductDetails() {
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.gallery.first.mobile} />
                     <source media='(max-width: 1199px)' srcSet={product.gallery.first.tablet} />
-                    <img src={product.gallery.first.desktop} alt='' className='md:h-full' />
+                    <img
+                      src={product.gallery.first.desktop}
+                      alt={product.slug}
+                      className='md:h-full'
+                    />
                   </picture>
                 </div>
                 <div className='rounded-md overflow-hidden md:row-start-2'>
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.gallery.second.mobile} />
                     <source media='(max-width: 1199px)' srcSet={product.gallery.second.tablet} />
-                    <img src={product.gallery.second.desktop} alt='' className='md:h-full' />
+                    <img
+                      src={product.gallery.second.desktop}
+                      alt={product.slug}
+                      className='md:h-full'
+                    />
                   </picture>
                 </div>
                 <div className='rounded-md overflow-hidden md:row-span-full md:col-start-2'>
                   <picture>
                     <source media='(max-width: 767px)' srcSet={product.gallery.third.mobile} />
                     <source media='(max-width: 1199px)' srcSet={product.gallery.third.tablet} />
-                    <img src={product.gallery.third.desktop} alt='' className='md:w-full' />
+                    <img
+                      src={product.gallery.third.desktop}
+                      alt={product.slug}
+                      className='md:w-full'
+                    />
                   </picture>
                 </div>
               </section>
               <section className='text-center mb-[70px]'>
-                <h3 className='text-xl lg:text-3xl font-bold mb-10 md:mb-14 uppercase'>
+                <h3 className='text-xl lg:text-3xl font-bold mb-10 md:mb-14 lg:mb-16 uppercase'>
                   You may also like
                 </h3>
-                <div className='md:flex md:flex-row md:gap-3'>
+                <div className='md:flex md:flex-row md:gap-3 lg:gap-[30px]'>
                   {product.others.map(item => (
                     <div key={item.name} className='flex flex-col items-center gap-8 mb-14 md:mb-0'>
                       <div className='rounded-md overflow-hidden'>
                         <picture>
                           <source media='(max-width: 767px)' srcSet={item.image.mobile} />
                           <source media='(max-width: 1199px)' srcSet={item.image.tablet} />
-                          <img src={item.image.desktop} alt='' />
+                          <img src={item.image.desktop} alt={item.slug} />
                         </picture>
                       </div>
                       <h4 className='text-xl font-bold'>{item.name}</h4>
@@ -126,9 +138,9 @@ function ProductDetails() {
               <section className='my-xl lg:my-2xl'>
                 <CategoriesCards
                   flexDirection='flex-col md:flex-row'
-                  gap='gap-y-[70px] md:gap-x-2.5'
+                  gap='gap-y-[70px] md:gap-x-2.5 lg:gap-x-[30px]'
                   paddingX='px-0'
-                  paddingY='pt-24 pb-9 md:pt-11 md:pb-0'
+                  paddingY='pt-24 pb-0 md:pt-11'
                 />
               </section>
             </article>

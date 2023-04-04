@@ -41,8 +41,8 @@ function Navigation() {
             </Link>
           </div>
         ) : null}
-        <div className='lg:w-36 md:ml-auto'>
-          <img className='lg:cursor-pointer' src={cartIcon} alt='Cart' />
+        <div className='lg:w-36 md:ml-auto lg:ml-0'>
+          <img className='lg:cursor-pointer md:ml-auto' src={cartIcon} alt='Cart' />
         </div>
       </nav>
       {isMenuOpen && <MobileMenu />}
