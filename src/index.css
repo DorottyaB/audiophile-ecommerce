@@ -18,6 +18,21 @@ p {
   font-size: 15px;
 }
 
+nav {
+  position: relative;
+}
+
+nav::after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: rgba(241, 241, 241, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -30,4 +45,16 @@ main {
 
 .social-icon:hover path {
   fill: #d87d4a;
+}
+
+@media screen and (min-width: 768px) {
+  nav::after {
+    width: calc(100vw - 80px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav::after {
+    width: calc(100vw - 330px);
+  }
 }

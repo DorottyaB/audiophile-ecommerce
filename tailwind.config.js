@@ -18,6 +18,7 @@ export default {
       '3xl': '2rem',
       '4xl': '2.25rem',
       '5xl': '2.5rem',
+      '6xl': '3.5rem',
     },
     colors: {
       orange: '#D87D4A',

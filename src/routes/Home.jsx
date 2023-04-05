@@ -1,19 +1,33 @@
+import useWindowDimensions from '../custom-hooks/useWindowDimensions';
+import { newProduct, featuredProducts } from '../constants';
+import About from '../components/about/About';
 import Button from '../components/button/Button';
 import CategoriesCards from '../components/categories-cards/CategoriesCards';
-import { newProduct, featuredProducts } from '../constants';
+import Footer from '../components/footer/Footer';
 
 function Home() {
+  const { width } = useWindowDimensions();
+
+  const backgroundImg =
+    width < 768
+      ? featuredProducts[1].image.mobile
+      : width < 1200
+      ? featuredProducts[1].image.tablet
+      : featuredProducts[1].image.desktop;
+
   return (
     <>
-      <header className='h-full flex flex-col items-center justify-center text-center px-6 py-28 bg-hero-image-sm md:bg-hero-image-md lg:bg-hero-image-lg bg-cover bg-bottom'>
+      <header className='h-[90vh] md:h-screen flex flex-col items-center justify-center text-center px-6 bg-hero-image-sm md:bg-hero-image-md lg:bg-hero-image-lg bg-cover bg-bottom'>
         <p className='uppercase text-[14px] text-lightGray/50 tracking-xl -mb-3'>New product</p>
-        <h1 className='uppercase text-4xl text-white font-bold tracking-wider mt-4 mb-6'>
+        <h1 className='uppercase text-4xl md:text-6xl text-white font-bold tracking-wider leading-tight mt-4 mb-5 md:my-6 max-w-xs md:max-w-xl'>
           {newProduct.name}
         </h1>
-        <p className='text-white leading-6 mb-7'>{newProduct.description}</p>
+        <p className='text-white leading-6 mb-7 md:mb-10 max-w-xs md:max-w-[350px]'>
+          {newProduct.description}
+        </p>
         <Button url={newProduct.url} />
       </header>
-      <main className='pt-10 px-6 items-stretch'>
+      <main className='pt-10 px-6 md:px-10 items-stretch'>
         <article>
           <section className='mb-xl lg:mb-2xl'>
             <CategoriesCards
@@ -36,11 +50,43 @@ function Home() {
                 {featuredProducts[0].name}
               </h3>
               <p className='text-lightGray leading-6 my-6'>{featuredProducts[0].description}</p>
-              <Button url={featuredProducts[0].url} dark={true} />
+              <Button url={featuredProducts[0].url} type='secondary' />
             </div>
           </section>
+          <section
+            style={{
+              backgroundImage: `url(${backgroundImg})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }}
+            className='h-80 mb-6 rounded-md overflow-hidden flex items-center'
+          >
+            <div className='px-6'>
+              <h3 className='text-darkGray text-2xl font-bold leading-tight mb-8'>
+                {featuredProducts[1].name}
+              </h3>
+              <Button url={featuredProducts[1].url} type='invert' />
+            </div>
+          </section>
+          <section className='mb-xl'>
+            <div className='rounded-md overflow-hidden'>
+              <picture>
+                <source media='(max-width: 767px)' srcSet={featuredProducts[2].image.mobile} />
+                <source media='(max-width: 1199px)' srcSet={featuredProducts[2].image.tablet} />
+                <img src={featuredProducts[2].image.desktop} alt='' className='md:w-full' />
+              </picture>
+            </div>
+            <div className='px-6 py-10 bg-lightGray rounded-md mt-6'>
+              <h3 className='text-darkGray text-2xl font-bold leading-tight mb-8'>
+                {featuredProducts[2].name}
+              </h3>
+              <Button url={featuredProducts[2].url} type='invert' />
+            </div>
+          </section>
+          <About />
         </article>
       </main>
+      <Footer />
     </>
   );
 }
