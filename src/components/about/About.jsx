@@ -1,6 +1,6 @@
 function About() {
   return (
-    <article className='text-center lg:text-left mb-xl md:flex md:flex-col lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[125px] md:items-center'>
+    <article className='text-center lg:text-left mb-xl md:flex md:flex-col lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[115px] xl:gap-x-xl md:items-center'>
       <div className='rounded-md overflow-hidden lg:col-start-2 lg:row-span-full'>
         <picture>
           <source

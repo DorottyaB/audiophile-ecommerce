@@ -56,6 +56,10 @@ export default {
         xl: '120px',
         '2xl': '160px',
       },
+      padding: {
+        xl: '120px',
+        '2xl': '165px',
+      },
       gap: {
         xl: '125px',
       },

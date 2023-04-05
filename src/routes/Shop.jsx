@@ -19,7 +19,7 @@ function Shop({ categoryName }) {
       <header className='bg-darkGray px-20 py-8 text-center'>
         <h1 className='uppercase text-2xl text-white font-bold tracking-widest'>{categoryName}</h1>
       </header>
-      <main className='bg-offWhite pt-16 px-6 md:pt-[120px] md:px-10 lg:pt-40 lg:px-[165px]'>
+      <main className='bg-offWhite pt-16 px-6 md:pt-xl md:px-10 lg:pt-40 lg:px-2xl'>
         <article>
           {isLoading ? <Spinner /> : category && <ProductList items={sortedItems} />}
           <section className='my-xl lg:my-2xl'>

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 function Button({ url, type }) {
   const btnPrimary = 'text-white bg-orange lg:hover:bg-lightOrange';
   const btnSecondary = 'text-white bg-darkGray lg:hover:bg-[#4C4C4C]';
-  const btnInvert = 'text-darkGray bg-transparent border-2 border-darkGray lg:hover:bg-darkGray';
+  const btnInvert =
+    'text-darkGray bg-transparent border-2 border-darkGray lg:hover:bg-darkGray lg:hover:text-white';
 
   return (
     <Link
