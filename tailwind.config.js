@@ -63,6 +63,18 @@ export default {
       gap: {
         xl: '125px',
       },
+      keyframes: {
+        slideDown: {
+          '0%': { transform: 'translateY(-300px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        slideDown: 'slideDown 0.6s linear forwards',
+      },
+      boxShadow: {
+        blurred: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+      },
     },
   },
   plugins: [],

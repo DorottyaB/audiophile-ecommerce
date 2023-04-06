@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { MobileMenuContext } from '../contexts/MobileMenuContext';
 import Logo from '../components/shared/Logo';
@@ -7,7 +7,7 @@ import menuIcon from '../assets/shared/tablet/icon-hamburger.svg';
 import MobileMenu from '../components/mobile-menu/MobileMenu';
 import useWindowDimensions from '../custom-hooks/useWindowDimensions';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsCartOpen } from '../selectors/cart/cartSelector';
+import { selectCartItems, selectIsCartOpen } from '../selectors/cart/cartSelector';
 import CartModal from '../components/cart-modal/CartModal';
 import { setIsCartOpen } from '../features/cart/cartSlice';
 
@@ -16,6 +16,17 @@ function Navigation() {
   const dispatch = useDispatch();
   const isCartOpen = useSelector(selectIsCartOpen);
   const { width } = useWindowDimensions();
+  const cartItems = useSelector(selectCartItems);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 4000);
+    }
+  }, [cartItems.length]);
 
   return (
     <>
@@ -57,7 +68,16 @@ function Navigation() {
         </div>
       </nav>
       {isMenuOpen && <MobileMenu />}
-      {isCartOpen && <CartModal />}
+      {isCartOpen && (
+        <div className='h-full absolute top-[89px] left-0 right-0 z-20 bg-[rgba(0,_0,_0,_0.65)]'>
+          <CartModal />
+        </div>
+      )}
+      {showPopup && (
+        <div className='fixed top-[89px] right-0 w-full md:w-auto z-20 animate-slideDown'>
+          <CartModal />
+        </div>
+      )}
       <Outlet />
     </>
   );

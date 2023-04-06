@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectCategories, selectIsLoading } from '../../selectors/categories/categoriesSelector';
@@ -20,7 +19,7 @@ function ProductDetails() {
 
   return (
     <>
-      <main className='px-6 pt-4 md:px-10 md:pt-8 lg:pt-20 lg:px-2xl'>
+      <main className='px-6 pt-4 md:px-10 md:pt-8 lg:pt-20 lg:px-2xl relative'>
         <button
           onClick={() => navigate(-1)}
           className='text-gray text-base font-medium lg:hover:text-orange'

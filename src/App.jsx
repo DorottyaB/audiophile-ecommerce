@@ -6,9 +6,11 @@ import Home from './routes/Home';
 import Shop from './routes/Shop';
 import Checkout from './routes/Checkout';
 import ProductDetails from './components/product-details/ProductDetails';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCategories } from './features/categories/categoriesSlice';
+import { selectIsCartOpen } from './selectors/cart/cartSelector';
+import { setIsCartOpen } from './features/cart/cartSlice';
 // import { addCollectionAndDocuments } from './utils/firebase.utils';
 // import SHOP_DATA from './data';
 
@@ -16,6 +18,7 @@ function App() {
   // useEffect(() => {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
   // }, []);
+  const isCartOpen = useSelector(selectIsCartOpen);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
@@ -26,6 +29,9 @@ function App() {
   // Automatically scroll to top whenever pathname changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (isCartOpen) {
+      dispatch(setIsCartOpen(!isCartOpen));
+    }
   }, [pathname]);
 
   return (
