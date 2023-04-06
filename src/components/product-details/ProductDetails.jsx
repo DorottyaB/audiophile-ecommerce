@@ -130,7 +130,7 @@ function ProductDetails() {
                         </picture>
                       </div>
                       <h4 className='text-xl font-bold'>{item.name}</h4>
-                      <Button url={`/products/${item.slug}`} />
+                      <Button url={`/products/${item.slug}`} value='see product' />
                     </div>
                   ))}
                 </div>

@@ -31,7 +31,7 @@ function AddToCart({ product }) {
       </div>
       <button
         onClick={() => dispatch(addItemToCart({ productToAdd: product, quantityToAdd: quantity }))}
-        className='bg-orange w-full lg:w-40 text-white text-sm font-bold uppercase lg:hover:bg-lightOrange active:bg-lightOrange lg:cursor-pointer'
+        className='bg-orange w-full lg:w-40 text-white text-sm font-bold uppercase transition-all lg:hover:bg-lightOrange active:bg-lightOrange active:scale-95 lg:cursor-pointer'
       >
         Add to cart
       </button>

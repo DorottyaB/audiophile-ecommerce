@@ -6,9 +6,15 @@ import cartIcon from '../assets/shared/desktop/icon-cart.svg';
 import menuIcon from '../assets/shared/tablet/icon-hamburger.svg';
 import MobileMenu from '../components/mobile-menu/MobileMenu';
 import useWindowDimensions from '../custom-hooks/useWindowDimensions';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsCartOpen } from '../selectors/cart/cartSelector';
+import CartModal from '../components/cart-modal/CartModal';
+import { setIsCartOpen } from '../features/cart/cartSlice';
 
 function Navigation() {
   const { isMenuOpen, setIsMenuOpen } = useContext(MobileMenuContext);
+  const dispatch = useDispatch();
+  const isCartOpen = useSelector(selectIsCartOpen);
   const { width } = useWindowDimensions();
 
   return (
@@ -42,10 +48,16 @@ function Navigation() {
           </div>
         ) : null}
         <div className='lg:w-36 md:ml-auto lg:ml-0'>
-          <img className='lg:cursor-pointer md:ml-auto' src={cartIcon} alt='Cart' />
+          <img
+            onClick={() => dispatch(setIsCartOpen(!isCartOpen))}
+            className='lg:cursor-pointer md:ml-auto'
+            src={cartIcon}
+            alt='Cart'
+          />
         </div>
       </nav>
       {isMenuOpen && <MobileMenu />}
+      {isCartOpen && <CartModal />}
       <Outlet />
     </>
   );

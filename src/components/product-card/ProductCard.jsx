@@ -20,7 +20,7 @@ function ProductCard({ slug, isNew, image, name, description }) {
         <p className='my-6 md:mt-8 md:mb-6 lg:mb-10 leading-6 font-medium text-gray md:max-w-xl lg:max-w-none md:mx-auto lg:mx-0'>
           {description}
         </p>
-        <Button url={`/products/${slug}`} />
+        <Button url={`/products/${slug}`} value='see product' />
       </div>
     </div>
   );

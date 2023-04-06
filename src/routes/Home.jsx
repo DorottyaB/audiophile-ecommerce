@@ -25,7 +25,7 @@ function Home() {
         <p className='text-white leading-6 mb-7 md:mb-10 max-w-xs md:max-w-[350px]'>
           {newProduct.description}
         </p>
-        <Button url={newProduct.url} />
+        <Button url={newProduct.url} value='see product' />
       </header>
       <main className='mt-10 md:mt-24 lg:mt-xl px-6 md:px-10 lg:px-2xl lg:mb-[60px] items-stretch'>
         <article>
@@ -52,7 +52,7 @@ function Home() {
               <p className='text-lightGray leading-6 my-6 md:mb-10 max-w-xs'>
                 {featuredProducts[0].description}
               </p>
-              <Button url={featuredProducts[0].url} type='secondary' />
+              <Button url={featuredProducts[0].url} type='secondary' value='see product' />
             </div>
           </section>
           <section
@@ -67,7 +67,7 @@ function Home() {
               <h3 className='text-darkGray text-2xl font-bold leading-tight mb-8'>
                 {featuredProducts[1].name}
               </h3>
-              <Button url={featuredProducts[1].url} type='invert' />
+              <Button url={featuredProducts[1].url} type='invert' value='see product' />
             </div>
           </section>
           <section className='mb-xl md:mb-24 lg:mb-[200px] md:grid md:grid-cols-2 md:gap-3 lg:gap-8'>
@@ -82,7 +82,7 @@ function Home() {
               <h3 className='text-darkGray text-2xl font-bold leading-tight mb-8'>
                 {featuredProducts[2].name}
               </h3>
-              <Button url={featuredProducts[2].url} type='invert' />
+              <Button url={featuredProducts[2].url} type='invert' value='see product' />
             </div>
           </section>
           <About />
