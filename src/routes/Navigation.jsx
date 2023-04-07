@@ -20,7 +20,7 @@ function Navigation() {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    if (cartItems.length > 0) {
+    if (cartItems.length > 0 && !isCartOpen) {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
