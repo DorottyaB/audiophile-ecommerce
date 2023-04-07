@@ -74,7 +74,7 @@ function Navigation() {
         </div>
       )}
       {showPopup && (
-        <div className='fixed top-[89px] right-0 w-full md:w-auto z-20 animate-slideDown'>
+        <div className='fixed top-4 md:top-[89px] right-0 w-full md:w-auto z-20 animate-slideDown'>
           <CartModal />
         </div>
       )}

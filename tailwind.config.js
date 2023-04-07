@@ -29,6 +29,7 @@ export default {
       lightOrange: '#FBAF85',
       white: '#FFFFFF',
       black: '#000000',
+      red: '#CD2C2C',
     },
     fontFamily: {
       sans: ['Manrope', 'sans-serif'],

@@ -29,10 +29,14 @@ function CartModal() {
             <h3 className='text-black font-bold text-center'>Your cart is empty.</h3>
           )}
         </section>
-        <h4 className='uppercase text-gray font-medium'>Total</h4>
-        <h4 className='text-black text-lg font-bold text-right'>
-          $ {cartTotal.toLocaleString('en-US')}
-        </h4>
+        {cartItems.length > 0 ? (
+          <>
+            <h4 className='uppercase text-gray font-medium'>Total</h4>
+            <h4 className='text-black text-lg font-bold text-right'>
+              $ {cartTotal.toLocaleString('en-US')}
+            </h4>
+          </>
+        ) : null}
       </section>
       <Button url='/checkout' value='checkout' width='100%' disabled={!cartItems.length} />
     </article>
