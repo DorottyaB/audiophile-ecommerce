@@ -22,8 +22,8 @@ function CartItem({ item }) {
         <img className='w-full' src={item.image.mobile} alt='' />
       </div>
       <div>
-        <h3 className='text-black font-bold'>{item.name.split(' ')[0]}</h3>
-        <p className='text-gray text-[14px] font-bold'>$ {item.price.toLocaleString('en-US')}</p>
+        <h3 className='text-black text-base font-bold'>{item.name.split(' ')[0]}</h3>
+        <p className='text-gray/60 text-[14px] font-bold'>$ {item.price.toLocaleString('en-US')}</p>
       </div>
       <div className='bg-lightGray flex font-bold text-sm w-24 h-8 item-center'>
         <button

@@ -31,7 +31,7 @@ function CartModal() {
         </section>
         {cartItems.length > 0 ? (
           <>
-            <h4 className='uppercase text-gray font-medium'>Total</h4>
+            <h4 className='uppercase text-gray text-base font-medium'>Total</h4>
             <h4 className='text-black text-lg font-bold text-right'>
               $ {cartTotal.toLocaleString('en-US')}
             </h4>
