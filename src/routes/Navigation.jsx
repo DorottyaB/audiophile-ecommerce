@@ -69,7 +69,7 @@ function Navigation() {
       </nav>
       {isMenuOpen && <MobileMenu />}
       {isCartOpen && (
-        <div className='h-full absolute top-[89px] left-0 right-0 z-20 bg-[rgba(0,_0,_0,_0.65)]'>
+        <div className='h-[calc(100%_-_95px)] absolute top-[89px] lg:top-[93px] left-0 right-0 z-20 bg-[rgba(0,_0,_0,_0.65)]'>
           <CartModal />
         </div>
       )}
