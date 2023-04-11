@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelector';
 import SummaryItem from '../summary-item/SummaryItem';
 
-function Form() {
+function Form({ setIsSuccessful }) {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const [formData, setFormData] = useState({
@@ -64,6 +64,8 @@ function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    window.scrollTo(0, 0);
+    setIsSuccessful(true);
   }
 
   return (

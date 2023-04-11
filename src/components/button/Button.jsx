@@ -10,7 +10,7 @@ function Button({ url, type, value, width, disabled }) {
   return (
     <Link
       to={url}
-      className={`inline-block text-center uppercase font-bold text-sm tracking-wide ${
+      className={`inline-block text-center uppercase font-bold text-sm tracking-wider ${
         width === '100%' ? 'w-full' : 'w-40'
       } py-4 ${type === 'secondary' ? btnSecondary : type === 'invert' ? btnInvert : btnPrimary} ${
         disabled ? btnDisabled : ''
