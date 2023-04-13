@@ -10,7 +10,6 @@ function Shop({ categoryName }) {
   const isLoading = useSelector(selectIsLoading);
   const categories = useSelector(selectCategories);
   const category = categories.find(category => category.category === categoryName);
-  console.log(category);
   let sortedItems;
 
   if (!isLoading && category) {
