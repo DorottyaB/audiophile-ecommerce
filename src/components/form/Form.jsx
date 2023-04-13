@@ -9,14 +9,14 @@ function Form({ setIsSuccessful }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: 0,
+    phone: '',
     address: '',
-    zip: 0,
+    zip: '',
     city: '',
     country: '',
     payment: 'card',
-    number: 0,
-    pin: 0,
+    number: '',
+    pin: '',
   });
   const [error, setError] = useState(false);
   const [showErrorText, setShowErrorText] = useState(false);
@@ -121,7 +121,7 @@ function Form({ setIsSuccessful }) {
             <input
               className='mt-2 w-full border border-gray/20 rounded-md text-[14px] py-[18px] px-6 focus-visible:border-orange focus-visible:outline-none'
               placeholder='+1 202-555-0136'
-              type='number'
+              type='tel'
               name='phone'
               id='phone'
               value={formData.phone}

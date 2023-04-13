@@ -15,19 +15,19 @@ function CategoryCard({ image, url, title }) {
   }
 
   return (
-    <div className='h-[165px] lg:h-[204px] bg-lightGray w-full rounded-md pb-6 flex flex-col justify-end items-center relative text-center'>
+    <Link
+      to={url}
+      onClick={handleClick}
+      className='h-[165px] lg:h-[204px] bg-lightGray w-full rounded-md pb-6 flex flex-col justify-end items-center relative text-center group'
+    >
       <div className='absolute -top-2/3 left-1/2 translate-y-1/2 -translate-x-1/2 w-36 lg:w-48'>
         <img src={image} alt='' />
       </div>
       <h2 className='uppercase text-base lg:text-lg tracking-wide font-bold mb-4'>{title}</h2>
-      <Link
-        to={url}
-        onClick={handleClick}
-        className='text-sm font-bold opacity-60 flex items-center justify-center gap-3 lg:hover:text-orange'
-      >
+      <p className='text-sm font-bold opacity-60 flex items-center justify-center gap-3 lg:group-hover:text-orange'>
         SHOP <img src={arrow} alt='' />
-      </Link>
-    </div>
+      </p>
+    </Link>
   );
 }
 
