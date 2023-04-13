@@ -29,7 +29,6 @@ Users should be able to:
   - Shipping always adds $50 to the order
   - VAT is calculated as 20% of the product total, excluding shipping
 - See an order confirmation modal after checking out with an order summary
-- **Bonus**: Keep track of what's in the cart, even after refreshing the browser
 
 ### Screenshot
 
@@ -38,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/DorottyaB/audiophile-ecommerce)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [audiophile-dorottyab.netlify.app](https://audiophile-dorottyab.netlify.app/)
 
 ## My process
 
