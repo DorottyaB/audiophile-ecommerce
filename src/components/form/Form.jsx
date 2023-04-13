@@ -9,12 +9,14 @@ function Form({ setIsSuccessful }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    phone: 0,
     address: '',
-    zip: '',
+    zip: 0,
     city: '',
     country: '',
     payment: 'card',
+    number: 0,
+    pin: 0,
   });
   const [error, setError] = useState(false);
   const [showErrorText, setShowErrorText] = useState(false);
@@ -227,7 +229,7 @@ function Form({ setIsSuccessful }) {
           </label>
           {formData.payment === 'card' ? (
             <>
-              <label className='mt-8 md:mt-2 text-xs font-bold text-black flex flex-col'>
+              <label className='mt-8 md:mt-2 text-xs font-bold text-black flex flex-col justify-start'>
                 e-money Number
                 <input
                   className='mt-2 w-full border border-gray/20 rounded-md text-[14px] py-[18px] px-6 focus-visible:border-orange focus-visible:outline-none'
@@ -238,7 +240,7 @@ function Form({ setIsSuccessful }) {
                   required
                 />
               </label>
-              <label className='mt-6 md:mt-2 text-xs font-bold text-black flex flex-col'>
+              <label className='mt-6 md:mt-2 text-xs font-bold text-black flex flex-col justify-start'>
                 e-money PIN
                 <input
                   className='mt-2 w-full border border-gray/20 rounded-md text-[14px] py-[18px] px-6 focus-visible:border-orange focus-visible:outline-none'

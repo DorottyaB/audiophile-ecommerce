@@ -1,16 +1,16 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import MobileMenuProvider from './contexts/MobileMenuContext';
-import './App.css';
 import Navigation from './routes/Navigation';
 import Home from './routes/Home';
 import Shop from './routes/Shop';
 import Checkout from './routes/Checkout';
 import ProductDetails from './components/product-details/ProductDetails';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchCategories } from './features/categories/categoriesSlice';
-import { selectIsCartOpen } from './selectors/cart/cartSelector';
-import { setIsCartOpen } from './features/cart/cartSlice';
+import { setIsCartOpen, setIsPopupVisible } from './features/cart/cartSlice';
+import { selectIsCartOpen, selectIsPopupVisible } from './selectors/cart/cartSelector';
+import './App.css';
 // import { addCollectionAndDocuments } from './utils/firebase.utils';
 // import SHOP_DATA from './data';
 
@@ -19,6 +19,7 @@ function App() {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
   // }, []);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const isPopupVisible = useSelector(selectIsPopupVisible);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
@@ -32,6 +33,9 @@ function App() {
     if (isCartOpen) {
       dispatch(setIsCartOpen(!isCartOpen));
     }
+    if (isPopupVisible && pathname === '/checkout') {
+      dispatch(setIsPopupVisible(false));
+    }
   }, [pathname]);
 
   return (
@@ -44,6 +48,7 @@ function App() {
           <Route path='earphones' element={<Shop categoryName='earphones' />} />
           <Route path='products/:productSlug' element={<ProductDetails />} />
           <Route path='checkout' element={<Checkout />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Route>
       </Routes>
     </MobileMenuProvider>

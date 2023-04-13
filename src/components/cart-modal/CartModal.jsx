@@ -3,11 +3,21 @@ import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelec
 import CartItem from './cart-item/CartItem';
 import Button from '../button/Button';
 import { clearCart } from '../../features/cart/cartSlice';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function CartModal() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (cartItems.length < 1 && pathname === '/checkout') {
+      navigate('/');
+    }
+  }, [cartItems.length]);
 
   return (
     <article className='bg-offWhite shadow-blurred rounded-md m-6 md:ml-auto md:mr-10 lg:mt-8 lg:mr-[165px] py-8 px-7 md:max-w-[377px]'>

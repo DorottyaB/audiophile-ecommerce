@@ -13,3 +13,8 @@ export const selectCartCount = createSelector([selectCartItems], cartItems =>
 export const selectCartTotal = createSelector([selectCartItems], cartItems =>
   cartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0)
 );
+
+export const selectIsPopupVisible = createSelector(
+  [selectCartReducer],
+  cart => cart.isPopupVisible
+);

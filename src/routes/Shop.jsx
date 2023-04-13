@@ -1,18 +1,22 @@
 import { useSelector } from 'react-redux';
-import ProductList from '../components/product-list/ProductList';
 import { selectCategories, selectIsLoading } from '../selectors/categories/categoriesSelector';
+import ProductList from '../components/product-list/ProductList';
 import Spinner from '../components/shared/spinner/Spinner';
 import CategoriesCards from '../components/categories-cards/CategoriesCards';
 import About from '../components/about/About';
 import Footer from '../components/footer/Footer';
 
 function Shop({ categoryName }) {
+  const isLoading = useSelector(selectIsLoading);
   const categories = useSelector(selectCategories);
   const category = categories.find(category => category.category === categoryName);
-  const isLoading = useSelector(selectIsLoading);
-  const sortedItems = [...category.items].sort(function (x, y) {
-    return x === y ? 0 : x ? -1 : 1;
-  });
+  let sortedItems;
+
+  if (!isLoading && category) {
+    sortedItems = [...category.items].sort(function (x, y) {
+      return x === y ? 0 : x ? -1 : 1;
+    });
+  }
 
   return (
     <>
@@ -20,7 +24,7 @@ function Shop({ categoryName }) {
         <h1 className='uppercase text-2xl text-white font-bold tracking-widest'>{categoryName}</h1>
       </header>
       <main className='bg-offWhite pt-16 px-6 md:pt-xl md:px-10 lg:pt-40 lg:px-2xl'>
-        <article>
+        <article className={isLoading ? 'flex flex-col justify-center' : ''}>
           {isLoading ? <Spinner /> : category && <ProductList items={sortedItems} />}
           <section className='my-xl lg:my-2xl'>
             <CategoriesCards

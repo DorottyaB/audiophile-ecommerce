@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { MobileMenuContext } from '../contexts/MobileMenuContext';
 import Logo from '../components/shared/Logo';
@@ -7,23 +7,27 @@ import menuIcon from '../assets/shared/tablet/icon-hamburger.svg';
 import MobileMenu from '../components/mobile-menu/MobileMenu';
 import useWindowDimensions from '../custom-hooks/useWindowDimensions';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems, selectIsCartOpen } from '../selectors/cart/cartSelector';
+import {
+  selectCartItems,
+  selectIsCartOpen,
+  selectIsPopupVisible,
+} from '../selectors/cart/cartSelector';
 import CartModal from '../components/cart-modal/CartModal';
-import { setIsCartOpen } from '../features/cart/cartSlice';
+import { setIsCartOpen, setIsPopupVisible } from '../features/cart/cartSlice';
 
 function Navigation() {
   const { isMenuOpen, setIsMenuOpen } = useContext(MobileMenuContext);
   const dispatch = useDispatch();
   const isCartOpen = useSelector(selectIsCartOpen);
-  const { width } = useWindowDimensions();
   const cartItems = useSelector(selectCartItems);
-  const [showPopup, setShowPopup] = useState(false);
+  const isPopupVisible = useSelector(selectIsPopupVisible);
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     if (cartItems.length > 0 && !isCartOpen) {
-      setShowPopup(true);
+      dispatch(setIsPopupVisible(true));
       setTimeout(() => {
-        setShowPopup(false);
+        dispatch(setIsPopupVisible(false));
       }, 4000);
     }
   }, [cartItems.length]);
@@ -73,7 +77,7 @@ function Navigation() {
           <CartModal />
         </div>
       )}
-      {showPopup && (
+      {isPopupVisible && (
         <div className='fixed top-4 md:top-[89px] right-0 w-full md:w-auto z-20 animate-slideDown'>
           <CartModal />
         </div>

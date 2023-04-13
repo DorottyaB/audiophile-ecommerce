@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelector';
 import SummaryItem from '../summary-item/SummaryItem';
-import Button from '../button/Button';
+import { clearCart } from '../../features/cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 function SuccessMessage() {
+  const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const grandTotal = Math.round(cartTotal * 1.2 + 50);
   const [showAll, setShowAll] = useState(false);
+  const otherItems = cartItems.slice(1);
 
   return (
     <div className='h-[calc(100%_-_95px)] absolute top-[89px] lg:top-[93px] left-0 right-0 z-20 bg-[rgba(0,_0,_0,_0.65)] flex items-start justify-center'>
@@ -28,21 +31,24 @@ function SuccessMessage() {
           You will receive an email confirmation shortly.
         </p>
         <section className='md:grid md:grid-cols-[4fr,_3fr] md:grid-rows-[auto,_auto] md:mb-3'>
-          <div className='bg-lightGray px-6 py-4 rounded-t-md md:rounded-tr-none flex flex-col gap-y-4'>
-            {showAll ? (
-              cartItems.map(item => <SummaryItem key={item.id} item={item} />)
-            ) : (
-              <SummaryItem item={cartItems[0]} />
-            )}
+          <div
+            className={`bg-lightGray px-6 py-4 rounded-t-md md:rounded-tr-none flex flex-col gap-y-4 col-start-1 row-start-1 ${
+              cartItems.length === 1 ? 'row-end-3 justify-center' : ''
+            }`}
+          >
+            <SummaryItem item={cartItems[0]} />
+            {showAll && otherItems.map(item => <SummaryItem key={item.id} item={item} />)}
           </div>
-          <div className='bg-lightGray px-6 text-center md:row-start-2 md:rounded-bl-md'>
-            <button
-              onClick={() => setShowAll(prevValue => !prevValue)}
-              className='w-full p-6 border-t border-t-gray/20 bg-transparent outline-none focus-visible:outline focus-visible:outline-gray text-gray text-xs font-bold lg:hover:text-orange'
-            >
-              {showAll ? 'View less' : `and ${cartItems.length - 1} other item(s)`}
-            </button>
-          </div>
+          {cartItems.length > 1 ? (
+            <div className='bg-lightGray px-6 text-center md:row-start-2 md:rounded-bl-md'>
+              <button
+                onClick={() => setShowAll(prevValue => !prevValue)}
+                className='w-full p-6 border-t border-t-gray/20 bg-transparent outline-none focus-visible:outline focus-visible:outline-gray text-gray text-xs font-bold lg:hover:text-orange'
+              >
+                {showAll ? 'View less' : `and ${cartItems.length - 1} other item(s)`}
+              </button>
+            </div>
+          ) : null}
           <div
             className={`bg-darkGray rounded-b-md p-6 md:px-8 md:py-10 md:row-span-full md:rounded-bl-none md:rounded-r-md md:flex md:flex-col ${
               showAll ? 'md:justify-end' : 'md:justify-center'
@@ -52,7 +58,13 @@ function SuccessMessage() {
             <h3 className='text-white text-lg font-bold'>$ {grandTotal.toLocaleString('en-US')}</h3>
           </div>
         </section>
-        <Button url='/' value='back to home' width='100%' />
+        <Link
+          to='/'
+          onClick={() => dispatch(clearCart())}
+          className='w-full py-4 text-white bg-orange text-center uppercase font-bold text-sm tracking-wider lg:hover:bg-lightOrange'
+        >
+          Back to home
+        </Link>
       </article>
     </div>
   );

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const CART_INITIAL_STATE = {
   isCartOpen: false,
+  isPopupVisible: false,
   cartItems: [],
 };
 
@@ -31,12 +32,12 @@ export const cartSlice = createSlice({
         existingCartItem.quantity = existingCartItem.quantity - 1;
       }
     },
-    clearItemFromCart(state, action) {
-      const cartItemToClear = action.payload;
-      state.cartItems = state.cartItems.filter(cartItem => cartItem.id !== cartItemToClear.id);
-    },
     setIsCartOpen(state, action) {
       state.isCartOpen = action.payload;
+      state.isPopupVisible = false;
+    },
+    setIsPopupVisible(state, action) {
+      state.isPopupVisible = action.payload;
     },
     clearCart(state, action) {
       state.cartItems = [];
@@ -44,6 +45,12 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, removeItemFromCart, clearItemFromCart, setIsCartOpen, clearCart } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+  setIsCartOpen,
+  setIsPopupVisible,
+  clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;
