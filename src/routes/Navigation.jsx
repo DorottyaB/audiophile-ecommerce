@@ -43,7 +43,7 @@ function Navigation() {
             <img src={menuIcon} alt='Menu' />
           </div>
         ) : null}
-        <Link to='/'>
+        <Link to='/' aria-label='Home'>
           <Logo />
         </Link>
         {width >= 1200 ? (
