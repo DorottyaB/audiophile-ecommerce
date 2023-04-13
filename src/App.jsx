@@ -7,10 +7,10 @@ import Home from './routes/Home';
 import Shop from './routes/Shop';
 import Checkout from './routes/Checkout';
 import ProductDetails from './components/product-details/ProductDetails';
+import Error from './components/error/Error';
 import { fetchCategories } from './features/categories/categoriesSlice';
 import { setIsCartOpen, setIsPopupVisible } from './features/cart/cartSlice';
 import { selectIsCartOpen, selectIsPopupVisible } from './selectors/cart/cartSelector';
-import './App.css';
 // import { addCollectionAndDocuments } from './utils/firebase.utils';
 // import SHOP_DATA from './data';
 
@@ -48,7 +48,7 @@ function App() {
           <Route path='earphones' element={<Shop categoryName='earphones' />} />
           <Route path='products/:productSlug' element={<ProductDetails />} />
           <Route path='checkout' element={<Checkout />} />
-          <Route path='*' element={<Navigate to='/' replace />} />
+          <Route path='*' element={<Error />} />
         </Route>
       </Routes>
     </MobileMenuProvider>

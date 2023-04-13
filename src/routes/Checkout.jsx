@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../components/form/Form';
 import Footer from '../components/footer/Footer';
-import { useState } from 'react';
 import SuccessMessage from '../components/success-message/SuccessMessage';
 
 function Checkout() {

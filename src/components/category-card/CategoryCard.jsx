@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
-import arrow from '../../assets/shared/desktop/icon-arrow-right.svg';
 import { MobileMenuContext } from '../../contexts/MobileMenuContext';
+import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
 
 function CategoryCard({ image, url, title }) {
   const { setIsMenuOpen } = useContext(MobileMenuContext);
@@ -25,7 +24,16 @@ function CategoryCard({ image, url, title }) {
       </div>
       <h2 className='uppercase text-base lg:text-lg tracking-wide font-bold mb-4'>{title}</h2>
       <p className='text-sm font-bold opacity-60 flex items-center justify-center gap-3 lg:group-hover:text-orange'>
-        SHOP <img src={arrow} alt='' />
+        SHOP{' '}
+        <svg width='8' height='12' xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M1.322 1l5 5-5 5'
+            stroke='#D87D4A'
+            strokeWidth='2'
+            fill='none'
+            fillRule='evenodd'
+          />
+        </svg>
       </p>
     </Link>
   );

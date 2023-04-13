@@ -1,19 +1,19 @@
 import { useContext, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { MobileMenuContext } from '../contexts/MobileMenuContext';
-import Logo from '../components/shared/Logo';
-import cartIcon from '../assets/shared/desktop/icon-cart.svg';
-import menuIcon from '../assets/shared/tablet/icon-hamburger.svg';
-import MobileMenu from '../components/mobile-menu/MobileMenu';
-import useWindowDimensions from '../custom-hooks/useWindowDimensions';
 import { useDispatch, useSelector } from 'react-redux';
+import { MobileMenuContext } from '../contexts/MobileMenuContext';
+import useWindowDimensions from '../custom-hooks/useWindowDimensions';
 import {
   selectCartItems,
   selectIsCartOpen,
   selectIsPopupVisible,
 } from '../selectors/cart/cartSelector';
-import CartModal from '../components/cart-modal/CartModal';
 import { setIsCartOpen, setIsPopupVisible } from '../features/cart/cartSlice';
+import Logo from '../components/shared/Logo';
+import cartIcon from '../assets/shared/icon-cart.svg';
+import menuIcon from '../assets/shared/icon-hamburger.svg';
+import MobileMenu from '../components/mobile-menu/MobileMenu';
+import CartModal from '../components/cart-modal/CartModal';
 
 function Navigation() {
   const { isMenuOpen, setIsMenuOpen } = useContext(MobileMenuContext);

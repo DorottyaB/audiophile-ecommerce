@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelector';
-import SummaryItem from '../summary-item/SummaryItem';
 import { clearCart } from '../../features/cart/cartSlice';
-import { Link } from 'react-router-dom';
+import SummaryItem from '../summary-item/SummaryItem';
 
 function SuccessMessage() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../shared/Logo';
-import { useEffect, useState } from 'react';
 
 function Footer() {
   const [year, setYear] = useState(2023);
@@ -10,9 +10,6 @@ function Footer() {
     const getYear = today.getFullYear();
     setYear(getYear);
   }, []);
-
-  const hoverStyles =
-    'invert(68%) sepia(75%) saturate(1922%) hue-rotate(327deg) brightness(90%) contrast(86%)';
 
   return (
     <footer className='bg-darkGray pt-14 md:pt-16 pb-10 md:pb-12 px-6 md:px-10 lg:px-[165px] text-center md:text-left grid grid-cols-1 md:grid-cols-2 gap-y-12 lg:gap-y-9 lg:gap-x-4 justify-items-center md:justify-items-start relative before:absolute before:top-0 before:left-1/2 md:before:left-10 lg:before:left-[165px] before:-translate-x-1/2 md:before:-translate-x-0 before:w-[101px] before:h-1 before:bg-orange'>

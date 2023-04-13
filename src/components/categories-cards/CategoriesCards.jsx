@@ -1,10 +1,10 @@
 import React from 'react';
 import CategoryCard from '../category-card/CategoryCard';
-import headphonesImg from '../../assets/shared/desktop/image-category-thumbnail-headphones.png';
-import speakersImg from '../../assets/shared/desktop/image-category-thumbnail-speakers.png';
-import earphonesImg from '../../assets/shared/desktop/image-category-thumbnail-earphones.png';
+import headphonesImg from '../../assets/shared/image-category-thumbnail-headphones.png';
+import speakersImg from '../../assets/shared/image-category-thumbnail-speakers.png';
+import earphonesImg from '../../assets/shared/image-category-thumbnail-earphones.png';
 
-function CategoriesCards({ flexDirection, gap, paddingX, paddingY, height }) {
+function CategoriesCards({ flexDirection, gap, paddingX, paddingY }) {
   const categories = [
     {
       title: 'headphones',

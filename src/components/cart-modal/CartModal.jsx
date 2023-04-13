@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelector';
-import CartItem from './cart-item/CartItem';
-import Button from '../button/Button';
-import { clearCart } from '../../features/cart/cartSlice';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartItems, selectCartTotal } from '../../selectors/cart/cartSelector';
+import { clearCart } from '../../features/cart/cartSlice';
+import CartItem from './cart-item/CartItem';
+import Button from '../button/Button';
 
 function CartModal() {
   const { pathname } = useLocation();
