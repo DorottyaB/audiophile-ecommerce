@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <>
-      <header className='h-[90vh] md:h-screen lg:h-[90vh] flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-6 lg:px-2xl bg-hero-image-sm md:bg-hero-image-md lg:bg-hero-image-lg bg-cover bg-bottom'>
+      <header className='h-[512px] md:h-[640px] lg:h-[632px] flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-6 lg:px-2xl bg-hero-image-sm md:bg-hero-image-md lg:bg-hero-image-lg bg-cover bg-bottom'>
         <p className='uppercase text-[14px] text-lightGray/50 tracking-xl -mb-3'>New product</p>
         <h1 className='uppercase text-4xl md:text-6xl text-white font-bold tracking-wider leading-tight mt-4 mb-5 md:my-6 max-w-xs md:max-w-xl'>
           {newProduct.name}
