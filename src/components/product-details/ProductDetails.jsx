@@ -45,7 +45,10 @@ function ProductDetails() {
                       New product
                     </p>
                   )}
-                  <h1 className='text-2xl lg:text-5xl tracking-wide font-bold leading-tight uppercase'>
+                  <h1
+                    id='label'
+                    className='text-2xl lg:text-5xl tracking-wide font-bold leading-tight uppercase'
+                  >
                     {product.name}
                   </h1>
                   <p className='my-6 md:my-8 leading-6 font-medium text-gray'>
